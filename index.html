@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+			$(document).ready(function(){
+				alert("ready");
+			    $("#mturk_form").submit(function(){
+			        alert("Submitted");
+			    });
+			});
+		</script>
+	</head>
 	<body>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
 		<h2>image 1</h2>
 		<img src="people3.jpg" alt="4 people on a dock" style="width:624px;height:330.67px;"> <br />
-		<form id="mturk_form">
-  		Number of People in image 1:<br>
-  		<input type="text" name="image1people"><br>
-  		<input type="submit" value="Submit">
+		<form action="" id="mturk_form">
+	  		Number of People in image 1:<br>
+	  		<input type="text" name="image1people"><br>
+	  		<input type="submit" value="Submit">
 		</form>
 		
 	</body>
