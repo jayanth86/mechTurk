@@ -17,7 +17,7 @@
 					numclicks++;
 					console.log(e);
 					$("#numberofpeople").text(numclicks);
-					$("numberofpeoplefield").val(numclicks);
+					$("image6").val(numclicks);
 					var newdomelement = $("<div class='marker'></div>");
 					newdomelement.css("left", e.pageX + "px");
 					newdomelement.css("top", e.pageY + "px");
@@ -38,7 +38,7 @@
 				$(elem).remove();
 
 				numclicks--;
-				$("#numberofpeoplefield").val(numclicks);
+				$("#image6").val(numclicks);
 				$("#numberofpeople").text(numclicks);
 			}
 			function removeElementEvent(e)	{
@@ -64,30 +64,30 @@
 		
 		<form id="mturk_form">
 	  		WorkerId:<br>
-	  		<input type="text" name="WorkerId"><br> 
+	  		<input type="text" name="workerId"><br> 
 	  		When counting people, only count them if the majority of the head is showing.<br> 
 	  		Animals do not count and please check the edges carefully!!<br>
 	  		<img src="people1.jpg" style="width:624px;height:330.67px;"> <br />
 	  		Number of people in image 1:<br>
-	  		<input type="text" name="image1people"><br>
+	  		<input type="text" name="image1"><br>
 	  		<img src="people2.jpg" style="width:624px;height:330.67px;"> <br />
 	  		Number of people in image 2:<br>
-	  		<input type="text" name="image2people"><br>
+	  		<input type="text" name="image2"><br>
 	  		<img src="people3.jpg" style="width:624px;height:330.67px;"> <br />
 	  		Number of people in image 3:<br>
-	  		<input type="text" name="image3people"><br>
+	  		<input type="text" name="image3"><br>
 	  		<img src="people4.jpg" style="width:624px;height:330.67px;"> <br />
 	  		Number of people in image 4:<br>
-	  		<input type="text" name="image4people"><br>
+	  		<input type="text" name="image4"><br>
 	  		<img src="people5.jpg" style="width:624px;height:330.67px;"> <br />
 	  		Number of people in image 5:<br>
-	  		<input type="text" name="image5people"><br>
+	  		<input type="text" name="image5"><br>
 	  		<img id="p6" src="people6.jpg" style="width:1000px;height:500px;"> <br />
 	  		For this picture, you need to click on each face to mark it. <br>
 	  		To undo a marker, hit ctrl + z <br>
 	  		Number of people in image 6 (Sorry for making you do this):<br>
 	  		You've selected  <Span id="numberofpeople">0</Span> people.<br>
-	  		<input id="numberofpeoplefield" type="hidden" name="numberofpeoplefield">
+	  		<input id="image6" type="hidden" name="image6">
 	  		
 	  		<input type="submit" value="Submit">
 		</form>
