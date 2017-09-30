@@ -27,7 +27,7 @@
 				})
 			    $(document).keydown(function(e)	{
 			    	console.log(e);
-			    	if(e.key=="z" && e.ctrlKey)	{
+			    	if(e.key=="z" && e.ctrlKey && numclicks!= 0)	{
 			    		var elem2remove = addedelements.pop();
 			    		removeElement(elem2remove);
 			    	}
@@ -83,11 +83,12 @@
 	  		Number of people in image 5:<br>
 	  		<input type="text" name="image5people"><br>
 	  		<img id="p6" src="people6.jpg" style="width:1000px;height:500px;"> <br />
+	  		For this picture, you need to click on each face to mark it. <br>
+	  		To undo a marker, hit ctrl + z <br>
 	  		Number of people in image 6 (Sorry for making you do this):<br>
 	  		You've selected  <Span id="numberofpeople">0</Span> people.<br>
 	  		<input id="numberofpeoplefield" type="hidden" name="numberofpeoplefield">
 	  		
-	  		<input type="text" name="image6people"><br>
 	  		<input type="submit" value="Submit">
 		</form>
 		
