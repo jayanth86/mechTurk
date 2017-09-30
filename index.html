@@ -2,19 +2,67 @@
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="mturk.js"></script>
 		<script type="text/javascript">
+			var numclicks = 0;
+			var keydowns = 0;
+			var addedelements = [];
 			$(document).ready(function(){
+				
 			    $("#mturk_form").submit(function(){
 			        alert("Submitted");
+
 			    });
+			    $("#p6").click(function(e)	{
+					numclicks++;
+					console.log(e);
+					$("#numberofpeople").text(numclicks);
+					$("numberofpeoplefield").val(numclicks);
+					var newdomelement = $("<div class='marker'></div>");
+					newdomelement.css("left", e.pageX + "px");
+					newdomelement.css("top", e.pageY + "px");
+
+					$("body").append(newdomelement);
+					addedelements.push(newdomelement);
+				})
+			    $(document).keydown(function(e)	{
+			    	console.log(e);
+			    	if(e.key=="z" && e.ctrlKey)	{
+			    		var elem2remove = addedelements.pop();
+			    		removeElement(elem2remove);
+			    	}
+			    })
 			});
+			
+			function removeElement(elem)	{
+				$(elem).remove();
+
+				numclicks--;
+				$("#numberofpeoplefield").val(numclicks);
+				$("#numberofpeople").text(numclicks);
+			}
+			function removeElementEvent(e)	{
+				removeElement(this);
+			}
+
 		</script>
-		<script src="mturk.js"></script>
+		<style>
+			.marker	{
+				border: 2px solid red;
+				border-radius: 5px;
+				width: 2px;
+				height: 2px;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+		</style>
+		
 	</head>
 	<body>
 		
 		
-		<form action="" id="mturk_form">
+		<form id="mturk_form">
 	  		WorkerId:<br>
 	  		<input type="text" name="WorkerId"><br> 
 	  		When counting people, only count them if the majority of the head is showing.<br> 
@@ -34,8 +82,11 @@
 	  		<img src="people5.jpg" style="width:624px;height:330.67px;"> <br />
 	  		Number of people in image 5:<br>
 	  		<input type="text" name="image5people"><br>
-	  		<img src="people6.jpg" style="width:1000px;height:500px;"> <br />
+	  		<img id="p6" src="people6.jpg" style="width:1000px;height:500px;"> <br />
 	  		Number of people in image 6 (Sorry for making you do this):<br>
+	  		You've selected  <Span id="numberofpeople">0</Span> people.<br>
+	  		<input id="numberofpeoplefield" type="hidden" name="numberofpeoplefield">
+	  		
 	  		<input type="text" name="image6people"><br>
 	  		<input type="submit" value="Submit">
 		</form>
