@@ -17,7 +17,6 @@
 					numclicks++;
 					console.log(e);
 					$("#numberofpeople").text(numclicks);
-					$("image6").val(numclicks);
 					var newdomelement = $("<div class='marker'></div>");
 					newdomelement.css("left", e.pageX + "px");
 					newdomelement.css("top", e.pageY + "px");
@@ -38,7 +37,6 @@
 				$(elem).remove();
 
 				numclicks--;
-				$("#image6").val(numclicks);
 				$("#numberofpeople").text(numclicks);
 			}
 			function removeElementEvent(e)	{
@@ -87,7 +85,8 @@
 	  		To undo a marker, hit ctrl + z <br>
 	  		Number of people in image 6 (Sorry for making you do this):<br>
 	  		You've selected  <Span id="numberofpeople">0</Span> people.<br>
-	  		<input id="image6" type="hidden" name="image6">
+	  		Please input how many people you selected: <br>
+	  		<input id="image6" type="text" name="image6">
 	  		Please triple check that you submitted every field - otherwise you won't receive credit <br>
 	  		<input type="submit" value="Submit">
 		</form>
